@@ -40,6 +40,9 @@ gem "bootsnap", require: false
 # For n8n webhook integration
 gem 'faraday', '~> 2.8'
 
+# Markdown processing
+gem "redcarpet"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
