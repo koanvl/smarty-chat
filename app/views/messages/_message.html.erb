@@ -1,0 +1,10 @@
+<div class="message <%= message.role %>" id="<%= dom_id(message) %>">
+  <div class="content">
+    <%= message.content %>
+  </div>
+  <% if message.user? && message.status == "pending" %>
+    <div class="status">
+      <small>Waiting for response...</small>
+    </div>
+  <% end %>
+</div>

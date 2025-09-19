@@ -1,0 +1,6 @@
+<!-- app/views/messages/_list.html.erb -->
+<% messages.each do |msg| %>
+  <div class="<%= msg.role %>">
+    <strong><%= msg.role.capitalize %>:</strong> <%= msg.content %>
+  </div>
+<% end %>
