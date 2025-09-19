@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  resources :messages, only: [:index, :create]
+  resources :dialogs, only: [ :index, :show, :create, :destroy ] do
+    resources :messages, only: [ :create ]
+  end
+
+  # Отдельный маршрут для создания сообщения в новом диалоге
+  post "/messages/create_with_dialog", to: "messages#create_with_dialog", as: :create_message_with_dialog
+
   post "/webhook/n8n_response", to: "webhook#n8n_response"
-  root "messages#index"
+
+  root "dialogs#index"
 end

@@ -11,7 +11,8 @@ class WebhookController < ApplicationController
       content: params[:text],
       role: :bot,
       status: "completed",
-      session_id: user_message.session_id
+      session_id: user_message.session_id,
+      dialog_id: params[:dialog_id] || user_message.dialog_id
     )
 
     head :ok

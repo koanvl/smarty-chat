@@ -1,4 +1,4 @@
-<%= turbo_stream_from "chat_#{session[:chat_id]}" %>
+<%= turbo_stream_from "dialog_#{@dialog.id}" %>
 
 <div class="min-h-screen bg-gray-50 flex flex-col">
   <div class="flex-1 flex flex-col max-w-4xl w-full mx-auto p-4">
@@ -15,6 +15,7 @@
 
     <div class="bg-white rounded-b-xl shadow-sm border-t p-4">
       <%= form_with model: Message.new,
+                    url: dialog_messages_path(@dialog),
                     class: "flex items-end gap-2",
                     data: {
                       controller: "reset-form",
@@ -78,21 +79,7 @@
 
 .markdown-content blockquote {
   @apply border-l-4 border-gray-200 pl-4 my-2 text-gray-600 italic;
-}
-
-  /* Typing dots */
-  .typing-dot {
-    @apply inline-block text-gray-400 text-base;
-    transform: translateY(0);
-  }
-  .animation-bounce {
-    animation: typing-bounce 1s infinite ease-in-out;
-    display: inline-block;
-  }
-  @keyframes typing-bounce {
-    0%, 80%, 100% { transform: translateY(0); opacity: .6; }
-    40% { transform: translateY(-4px); opacity: 1; }
-  }
+}  
 
 /* Message styles */
 .message {

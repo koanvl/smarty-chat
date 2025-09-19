@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_09_19_101633) do
+ActiveRecord::Schema[7.2].define(version: 2025_09_19_120000) do
+  create_table "dialogs", force: :cascade do |t|
+    t.string "title"
+    t.string "session_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["session_id"], name: "index_dialogs_on_session_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.text "content"
     t.integer "role"
@@ -18,5 +26,9 @@ ActiveRecord::Schema[7.2].define(version: 2025_09_19_101633) do
     t.string "session_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "dialog_id"
+    t.index ["dialog_id"], name: "index_messages_on_dialog_id"
   end
+
+  add_foreign_key "messages", "dialogs"
 end
