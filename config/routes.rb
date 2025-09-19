@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :dialogs, only: [ :index, :show, :create, :destroy ] do
+  resources :dialogs, only: [ :index, :show, :create ] do
     resources :messages, only: [ :create ]
   end
 
