@@ -1,6 +1,6 @@
 class DialogsController < ApplicationController
   before_action :set_session_id
-  before_action :set_dialog, only: [ :show ]
+  before_action :set_dialog, only: [ :show, :destroy ]
 
   def index
     @dialogs = Dialog.where(session_id: session[:chat_id]).order(updated_at: :desc)
@@ -17,6 +17,11 @@ class DialogsController < ApplicationController
       session_id: session[:chat_id]
     )
     redirect_to dialog_path(dialog)
+  end
+
+  def destroy
+    @dialog.destroy
+    redirect_to root_path, notice: "Dialog was successfully deleted"
   end
 
   private
