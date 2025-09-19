@@ -3,7 +3,7 @@ class WebhookController < ApplicationController
 
   def n8n_response
     user_message = Message.find(params[:id])
-    
+
     Message.create!(
       content: params[:text],
       role: :bot,
