@@ -4,6 +4,9 @@ class WebhookController < ApplicationController
   def n8n_response
     user_message = Message.find(params[:id])
 
+    # Mark user message as completed so typing indicator disappears
+    user_message.update!(status: "completed")
+
     Message.create!(
       content: params[:text],
       role: :bot,

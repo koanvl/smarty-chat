@@ -3,4 +3,5 @@ class Message < ApplicationRecord
   validates :content, presence: true
 
   after_create_commit -> { broadcast_append_to "chat_#{session_id}" }
+  after_update_commit -> { broadcast_replace_to "chat_#{session_id}" }
 end

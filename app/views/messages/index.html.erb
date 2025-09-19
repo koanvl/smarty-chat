@@ -80,6 +80,20 @@
   @apply border-l-4 border-gray-200 pl-4 my-2 text-gray-600 italic;
 }
 
+  /* Typing dots */
+  .typing-dot {
+    @apply inline-block text-gray-400 text-base;
+    transform: translateY(0);
+  }
+  .animation-bounce {
+    animation: typing-bounce 1s infinite ease-in-out;
+    display: inline-block;
+  }
+  @keyframes typing-bounce {
+    0%, 80%, 100% { transform: translateY(0); opacity: .6; }
+    40% { transform: translateY(-4px); opacity: 1; }
+  }
+
 /* Message styles */
 .message {
   @apply max-w-[80%] rounded-2xl p-4;
