@@ -7,7 +7,12 @@
     <%= render @messages %>
   </div>
 
-  <%= form_with model: Message.new, class: "message-form" do |f| %>
+  <%= form_with model: Message.new, 
+                class: "message-form",
+                data: { 
+                  controller: "reset-form",
+                  action: "turbo:submit-end->reset-form#reset"
+                } do |f| %>
     <%= f.text_field :content, placeholder: "Type a message..." %>
     <%= f.submit "Send" %>
   <% end %>
