@@ -39,10 +39,6 @@
   @apply text-lg font-semibold mt-2 mb-1;
 }
 
-.markdown-content p {
-  @apply mb-2;
-}
-
 .markdown-content code {
   @apply bg-gray-100 text-sm px-1.5 py-0.5 rounded font-mono;
 }
@@ -70,4 +66,20 @@
 
 .markdown-content blockquote {
   @apply border-l-4 border-gray-200 pl-4 my-2 text-gray-600 italic;
-}  
+} 
+
+.message.user {
+  @apply flex flex-col items-end mb-6 max-w-screen-md mx-auto
+}
+
+.message.bot {
+  @apply flex flex-col items-center mb-6 max-w-screen-md mx-auto
+}
+
+.message.user .markdown-content {
+  @apply bg-gray-100 w-fit px-4 py-1.5 max-w-[70%] rounded-[18px]
+}
+
+textarea:focus-visible {
+  @apply outline-gray-300 outline-0
+}

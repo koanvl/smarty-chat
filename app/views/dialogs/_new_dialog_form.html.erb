@@ -1,0 +1,31 @@
+<div class="text-center w-full">
+  <h2 class="text-3xl font-semibold text-gray-900 dark:text-white mb-8">
+    Are you ready to start estimating?
+  </h2>
+  <%= form_with scope: :message,
+                url: create_message_with_dialog_path,
+                class: "mt-4 flex flex-col items-center gap-2",
+                data: {
+                  controller: "reset-form",
+                  action: "turbo:submit-end->reset-form#reset"
+                } do |f| %>
+    <div class="relative w-full">
+      <%= f.text_area :content,
+                   rows: 3,
+                   class: "block resize-none p-2.5 pb-12 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-0 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white", placeholder: "Write your thoughts here..." %>
+      <%= f.button type: :submit,
+              class: "w-8 h-8 absolute bottom-2.5 right-2.5 bg-blue-600 p-2 text-white font-medium hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-200 transition duration-200 rounded-full flex items-center justify-between" do %>
+              <svg xmlns="http://www.w3.org/2000/svg" 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke-width="1.5" 
+                  stroke="currentColor" 
+                  class="w-4 h-4">
+                <path stroke-linecap="round" 
+                      stroke-linejoin="round" 
+                      d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
+              </svg>
+      <% end %>
+    </div>
+  <% end %>
+</div>
