@@ -38,7 +38,7 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 # For n8n webhook integration
-gem 'faraday', '~> 2.8'
+gem 'faraday', '~> 2.14'
 
 # Markdown processing
 gem "redcarpet"
